@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online Moderna</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Tienda Online Moderna</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#mi-cuenta">Mi Cuenta</a></li>
+                <li><a href="#carrito" id="link-carrito">Carrito (<span id="contador-carrito">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="productos">
+            <h2>Productos Destacados</h2>
+            
+            <button class="collapsible-button" onclick="toggleContent('gorras')">Gorros</button>
+            <div id="gorras" class="collapsible-content">
+                <div class="productos-container" id="productos-gorras"></div>
+            </div>
+
+            <button class="collapsible-button" onclick="toggleContent('zapatillas')">Zapatillas</button>
+            <div id="zapatillas" class="collapsible-content">
+                <div class="productos-container" id="productos-zapatillas"></div>
+            </div>
+
+            <button class="collapsible-button" onclick="toggleContent('poleras')">Poleras</button>
+            <div id="poleras" class="collapsible-content">
+                <div class="productos-container" id="productos-poleras"></div>
+            </div>
+        </section>
+
+        <section id="carrito" class="carrito-section" style="display: none;">
+            <h2>Tu Carrito</h2>
+            <div id="productos-carrito" class="productos-carrito"></div>
+            <button id="vaciar-carrito" class="cta">Vaciar Carrito</button>
+            <button id="ir-a-pago" class="cta">Proceder a la Compra</button>
+        </section>
+
+        <section id="checkout" class="checkout-section" style="display: none;">
+            <h2>Información de Compra</h2>
+            <form id="checkout-form">
+                <label for="nombre-comprador">Nombre Completo:</label>
+                <input type="text" id="nombre-comprador" required>
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" required>
+
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" required>
+
+                <label for="codigo-postal">Código Postal:</label>
+                <input type="text" id="codigo-postal" required>
+
+                <label for="metodo-pago">Selecciona un método de pago:</label>
+                <select id="metodo-pago" required>
+                    <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="transferencia">Transferencia Bancaria</option>
+                </select>
+
+                <button type="submit" class="cta">Confirmar Compra</button>
+            </form>
+        </section>
+
+        <section id="sobre-nosotros">
+            <h2>Sobre Nosotros</h2>
+            <p>Bienvenido a nuestra tienda online. Ofrecemos productos de la mejor calidad con un excelente servicio al cliente. Nuestro objetivo es brindarte la mejor experiencia de compra posible.</p>
+        </section>
+
+        <section id="mi-cuenta">
+            <h2>Mi Cuenta</h2>
+            <form id="mi-cuenta-form">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" required>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" required>
+
+                <button type="submit" class="cta">Iniciar Sesión</button>
+            </form>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="contact-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+                
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    
+        <section id="login-register" class="login-register-section">
+            <h2>Iniciar sesión o Registrarse</h2>
+            <form id="login-form">
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" id="username" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" required>
+                <button type="submit" class="cta">Iniciar Sesión / Registrarse</button>
+            </form>
+        </section>
+
+        <section id="product-rating">
+            <h2>Califica Nuestros Productos</h2>
+            <div id="rating-container"></div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-imagen" src="" alt="Imagen del Producto">
+            <h3 id="modal-nombre"></h3>
+            <p id="modal-descripcion"></p>
+            <p><strong>Precio: $<span id="modal-precio"></span></strong></p>
+            <button id="agregar-carrito-modal" class="cta">Agregar al Carrito</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Tienda Online Moderna. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
